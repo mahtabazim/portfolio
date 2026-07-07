@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
 
@@ -14,9 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Md Mahtab Alam | Portfolio",
-  description: "I am a passionate software engineer with expertise in ReactJS, JavaScript, NodeJS, HTML/CSS, TailwindCSS, MongoDB, Git & GitHub, and C. I love building innovative web applications and solving complex problems.",
+  title: "Md Mahtab Alam | Full-stack Developer",
+  description:
+    "Portfolio of Md Mahtab Alam, a full-stack developer from India building clean web applications with React, Next.js, and practical backend foundations.",
 };
+
+const themeInit = `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}})()`;
 
 export default function RootLayout({
   children,
@@ -26,9 +30,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+      className={`${poppins.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full">
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
         {children}
         <Script
           src="https://cloud.umami.is/script.js"
