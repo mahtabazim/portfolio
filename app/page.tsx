@@ -39,6 +39,15 @@ const socials = [
 const projects = [
   {
     number: "01",
+    title: "dusty-pages",
+    description:
+      "A community book exchange platform — sell used books to readers near you, earn coins, and spend them on books from the community, with escrow-protected meetups.",
+    tech: ["Next.js", "TypeScript"],
+    href: "https://dustypages.vercel.app/",
+    repo: "https://github.com/mahtabazim/dusty-pages",
+  },
+  {
+    number: "02",
     title: "teabrew",
     description:
       "A web app that helps you find tea shops near you — locate the closest spot for a good cup of chai.",
@@ -46,7 +55,7 @@ const projects = [
     href: "https://github.com/mahtabazim/teabrew",
   },
   {
-    number: "02",
+    number: "03",
     title: "task-flow",
     description:
       "A simple task management app for organizing your day — create, track, and complete tasks without the clutter.",
@@ -152,35 +161,49 @@ export default function Home() {
           <SectionHeading>Projects</SectionHeading>
           <ul className="space-y-4">
             {projects.map((project) => (
-              <li key={project.number}>
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block rounded-lg border border-border p-6 transition-colors hover:bg-surface"
-                >
-                  <div className="flex items-baseline gap-4">
-                    <span className="font-mono text-sm text-muted">
-                      {project.number}
-                    </span>
-                    <h3 className="font-medium group-hover:underline group-hover:underline-offset-4">
+              <li
+                key={project.number}
+                className="group relative rounded-lg border border-border p-6 transition-colors hover:bg-surface"
+              >
+                <div className="flex items-baseline gap-4">
+                  <span className="font-mono text-sm text-muted">
+                    {project.number}
+                  </span>
+                  <h3 className="font-medium">
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="after:absolute after:inset-0 group-hover:underline group-hover:underline-offset-4"
+                    >
                       {project.title}
-                    </h3>
-                  </div>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
-                    {project.description}
-                  </p>
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <li
-                        key={tech}
-                        className="rounded-md border border-border px-2 py-0.5 font-mono text-xs text-muted"
-                      >
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
-                </a>
+                    </a>
+                  </h3>
+                  {project.repo && (
+                    <a
+                      href={project.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${project.title} on GitHub`}
+                      className="relative z-10 ml-auto text-muted transition-colors hover:text-foreground"
+                    >
+                      <GitHubIcon className="h-4 w-4" />
+                    </a>
+                  )}
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  {project.description}
+                </p>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <li
+                      key={tech}
+                      className="rounded-md border border-border px-2 py-0.5 font-mono text-xs text-muted"
+                    >
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
           </ul>
