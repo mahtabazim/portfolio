@@ -45,22 +45,7 @@ const projects = [
     tech: ["Next.js", "TypeScript"],
     href: "https://dustypages.vercel.app/",
     repo: "https://github.com/mahtabazim/dusty-pages",
-  },
-  {
-    number: "02",
-    title: "teabrew",
-    description:
-      "A web app that helps you find tea shops near you — locate the closest spot for a good cup of chai.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    href: "https://github.com/mahtabazim/teabrew",
-  },
-  {
-    number: "03",
-    title: "task-flow",
-    description:
-      "A simple task management app for organizing your day — create, track, and complete tasks without the clutter.",
-    tech: ["React", "TypeScript", "Tailwind CSS"],
-    href: "https://github.com/mahtabazim",
+    image: "/dusty-pages.png",
   },
 ];
 
@@ -163,47 +148,60 @@ export default function Home() {
             {projects.map((project) => (
               <li
                 key={project.number}
-                className="group relative rounded-lg border border-border p-6 transition-colors hover:bg-surface"
+                className="group relative overflow-hidden rounded-lg border border-border transition-colors hover:bg-surface"
               >
-                <div className="flex items-baseline gap-4">
-                  <span className="font-mono text-sm text-muted">
-                    {project.number}
-                  </span>
-                  <h3 className="font-medium">
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="after:absolute after:inset-0 group-hover:underline group-hover:underline-offset-4"
-                    >
-                      {project.title}
-                    </a>
-                  </h3>
-                  {project.repo && (
-                    <a
-                      href={project.repo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${project.title} on GitHub`}
-                      className="relative z-10 ml-auto text-muted transition-colors hover:text-foreground"
-                    >
-                      <GitHubIcon className="h-4 w-4" />
-                    </a>
-                  )}
+                {project.image && (
+                  <div className="relative aspect-[1200/630] border-b border-border">
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} preview`}
+                      fill
+                      sizes="(min-width: 672px) 624px, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+                <div className="p-6">
+                  <div className="flex items-baseline gap-4">
+                    <span className="font-mono text-sm text-muted">
+                      {project.number}
+                    </span>
+                    <h3 className="font-medium">
+                      <a
+                        href={project.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="after:absolute after:inset-0 group-hover:underline group-hover:underline-offset-4"
+                      >
+                        {project.title}
+                      </a>
+                    </h3>
+                    {project.repo && (
+                      <a
+                        href={project.repo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${project.title} on GitHub`}
+                        className="relative z-10 ml-auto text-muted transition-colors hover:text-foreground"
+                      >
+                        <GitHubIcon className="h-4 w-4" />
+                      </a>
+                    )}
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    {project.description}
+                  </p>
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {project.tech.map((tech) => (
+                      <li
+                        key={tech}
+                        className="rounded-md border border-border px-2 py-0.5 font-mono text-xs text-muted"
+                      >
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {project.description}
-                </p>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <li
-                      key={tech}
-                      className="rounded-md border border-border px-2 py-0.5 font-mono text-xs text-muted"
-                    >
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
               </li>
             ))}
           </ul>
