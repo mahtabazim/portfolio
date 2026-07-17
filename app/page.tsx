@@ -55,6 +55,7 @@ const projects = [
     tech: ["Next.js", "TypeScript", "Leaflet"],
     href: "https://teabrew.vercel.app/",
     repo: "https://github.com/mahtabazim/teabrew",
+    image: "/teabrew.png",
   },
 ];
 
