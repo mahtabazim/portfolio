@@ -47,6 +47,15 @@ const projects = [
     repo: "https://github.com/mahtabazim/dusty-pages",
     image: "/dusty-pages.png",
   },
+  {
+    number: "02",
+    title: "teabrew",
+    description:
+      "Find tea rooms and cafés within walking distance, then brew what you liked at home — six recipe guides with ratios, water temperatures, and steeping timers. Runs entirely in the browser on OpenStreetMap data, no account needed.",
+    tech: ["Next.js", "TypeScript", "Leaflet"],
+    href: "https://teabrew.vercel.app/",
+    repo: "https://github.com/mahtabazim/teabrew",
+  },
 ];
 
 const skills = [
