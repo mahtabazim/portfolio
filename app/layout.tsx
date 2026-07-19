@@ -14,10 +14,49 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://mahtabazim.me";
+const siteDescription =
+  "Hi, I'm Mahtab, a full-stack developer. I build web apps with React and Next.js, and I like keeping things simple, fast, and genuinely useful.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Md Mahtab Alam | Full-stack Developer",
-  description:
-    "Portfolio of Md Mahtab Alam, a full-stack developer from India building clean web applications with React, Next.js, and practical backend foundations.",
+  description: siteDescription,
+  keywords: [
+    "Md Mahtab Alam",
+    "Mahtab Alam",
+    "mahtabazim",
+    "themahtabazim",
+    "full-stack developer",
+    "web developer",
+    "React developer",
+    "Next.js developer",
+    "TypeScript",
+    "Node.js",
+  ],
+  authors: [{ name: "Md Mahtab Alam", url: siteUrl }],
+  creator: "Md Mahtab Alam",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Md Mahtab Alam",
+    title: "Md Mahtab Alam | Full-stack Developer",
+    description: siteDescription,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@themahtabazim",
+    title: "Md Mahtab Alam | Full-stack Developer",
+    description: siteDescription,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 const themeInit = `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}})()`;

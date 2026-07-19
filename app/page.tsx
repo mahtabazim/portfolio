@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Nav from "../components/nav";
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -15,7 +14,7 @@ const socials = [
     icon: GitHubIcon,
   },
   {
-    href: "https://x.com/mdmahtab03",
+    href: "https://x.com/themahtabazim",
     label: "X (Twitter)",
     icon: XIcon,
   },
@@ -41,7 +40,7 @@ const projects = [
     number: "01",
     title: "dusty-pages",
     description:
-      "A community book exchange platform — sell used books to readers near you, earn coins, and spend them on books from the community, with escrow-protected meetups.",
+      "A community book exchange platform. Sell used books to readers near you, earn coins, and spend them on books from the community, with escrow-protected meetups.",
     tech: ["Next.js", "TypeScript"],
     href: "https://dustypages.vercel.app/",
     repo: "https://github.com/mahtabazim/dusty-pages",
@@ -51,7 +50,7 @@ const projects = [
     number: "02",
     title: "teabrew",
     description:
-      "Find tea rooms and cafés within walking distance, then brew what you liked at home — six recipe guides with ratios, water temperatures, and steeping timers. Runs entirely in the browser on OpenStreetMap data, no account needed.",
+      "Find tea rooms and cafés within walking distance, then brew what you liked at home with six recipe guides covering ratios, water temperatures, and steeping timers. Runs entirely in the browser on OpenStreetMap data, no account needed.",
     tech: ["Next.js", "TypeScript", "Leaflet"],
     href: "https://teabrew.vercel.app/",
     repo: "https://github.com/mahtabazim/teabrew",
@@ -78,6 +77,33 @@ const skills = [
   },
 ];
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Md Mahtab Alam",
+  alternateName: ["mahtabazim", "themahtabazim"],
+  url: "https://mahtabazim.me",
+  image: "https://mahtabazim.me/profile.jpg",
+  jobTitle: "Full-stack Developer",
+  email: "mailto:mdmahtab9006@gmail.com",
+  sameAs: [
+    "https://github.com/mahtabazim",
+    "https://x.com/themahtabazim",
+    "https://www.threads.com/@themahtabazim",
+    "https://www.linkedin.com/in/mahtabazim/",
+    "https://peerlist.io/mahtabazim",
+  ],
+  knowsAbout: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "JavaScript",
+    "Node.js",
+    "MySQL",
+    "Tailwind CSS",
+  ],
+};
+
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
     <h2 className="mb-8 font-mono text-sm font-medium uppercase tracking-widest text-muted">
@@ -89,6 +115,10 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 export default function Home() {
   return (
     <div id="top">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
 
       <main className="mx-auto max-w-2xl px-6">
         {/* Hero */}
@@ -106,12 +136,12 @@ export default function Home() {
             Md Mahtab Alam
           </h1>
           <p className="mt-2 text-lg text-muted">
-            Full-stack Developer · India
+            Full-stack Developer
           </p>
           <p className="mt-6 max-w-lg leading-relaxed text-muted">
-            I build clean, functional web applications with React and Next.js,
-            backed by practical full-stack foundations — from databases to
-            Linux.
+            I build web apps with React and Next.js, the kind that load fast,
+            make sense at a glance, and quietly do their job. Comfortable
+            anywhere from the database to the terminal.
           </p>
           <ul className="mt-8 flex items-center gap-4">
             {socials.map(({ href, label, icon: Icon }) => (
@@ -135,15 +165,17 @@ export default function Home() {
           <SectionHeading>About</SectionHeading>
           <div className="space-y-4 leading-relaxed text-muted">
             <p>
-              I&apos;m a developer from India focused on building for the web.
-              My core stack is React and Next.js on the frontend, with Node.js
-              and MySQL behind it.
+              Hi, I&apos;m Mahtab, a developer who enjoys building for the
+              web. Most of my time goes into React and Next.js on the
+              frontend, with Node.js and MySQL doing the quiet work behind the
+              scenes. I&apos;ve shipped things like a community book exchange
+              and a tea room finder, mostly because I wanted them to exist.
             </p>
             <p>
-              Beyond the browser, I keep my fundamentals sharp — data
-              structures in C, Java programming, and a working comfort with
-              Linux. I care about simple, minimal interfaces that do their job
-              without getting in the way.
+              Away from the browser, I like keeping my fundamentals honest:
+              data structures in C, a good amount of Java, and enough Linux to
+              feel at home in a terminal. If an interface is simple, fast, and
+              stays out of your way, chances are I enjoyed making it.
             </p>
           </div>
         </section>
@@ -245,24 +277,6 @@ export default function Home() {
               </div>
             ))}
           </dl>
-        </section>
-
-        {/* Contact */}
-        <section
-          id="contact"
-          className="scroll-mt-20 border-t border-border py-20"
-        >
-          <SectionHeading>Contact</SectionHeading>
-          <p className="max-w-lg leading-relaxed text-muted">
-            Open to interesting projects and opportunities. The fastest way to
-            reach me is email.
-          </p>
-          <a
-            href="mailto:mdmahtab9006@gmail.com"
-            className="mt-6 inline-block rounded-lg border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:bg-surface"
-          >
-            mdmahtab9006@gmail.com
-          </a>
         </section>
       </main>
 
